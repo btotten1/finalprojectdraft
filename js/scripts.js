@@ -11,11 +11,14 @@ window.addEventListener('DOMContentLoaded', event => {
 
     // Navbar shrink function
     var navbarShrink = function () {
+        const canvas = document.getElementById('snakeCanvas');
+        const ctx = canvas.getContext('2d');  // This is crucial for drawing!        
         const navbarCollapsible = document.body.querySelector('#mainNav');
         if (!navbarCollapsible) {
             return;
         }
         if (window.scrollY === 0) {
+            let snake = [{ x: 5 * box, y: 5 * box }];
             navbarCollapsible.classList.remove('navbar-shrink')
         } else {
             navbarCollapsible.classList.add('navbar-shrink')
